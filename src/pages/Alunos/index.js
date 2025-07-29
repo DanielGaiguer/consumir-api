@@ -69,7 +69,7 @@ export default function Alunos(){
         {Array.isArray(alunos) && alunos.map((aluno, index) => (
           <div key={String(aluno.id)}>{/*Vai criar uma div por aluno, com a key do valor do ID do aluno, Toda vez que você renderiza uma lista no React, é obrigatório passar uma prop key única para cada item. */}
             <ProfilePicture>
-              {console.log(`teste`)/*get do lodash, vai pegar dentro do aluno, Fotos[0].url, se caso nao ter o valor vai ser false, depois ele vai verificar, se o valor for true ele ira carregar a imagem, se nao ele vai colocar um icone padrao*/}
+              {/*get do lodash, vai pegar dentro do aluno, Fotos[0].url, se caso nao ter o valor vai ser false, depois ele vai verificar, se o valor for true ele ira carregar a imagem, se nao ele vai colocar um icone padrao*/}
               { get(aluno, 'Fotos[0].url', false) ? (
                 <img src={aluno.Fotos[0].url} alt="" />
               ) : (
