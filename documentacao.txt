@@ -41,6 +41,7 @@ cd app --> Este e o caminho supondo que você estava em var/www
 sudo service nginx restart --> Vai reiniciar o Nginx, para atualizar as modificações
 Fim, Alteração realizada com sucesso!
 
+Para testar se esta funcionando, acesse http://192.168.1.31:82/ no navegador, 
 
 
 Outros Comandos uteis:
