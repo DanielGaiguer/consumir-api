@@ -1,0 +1,49 @@
+Nesta documentação irei expkicar a infraestrutura de vários elementos do Projeto Full Stack, ou seja, nesta documentação irei somar a explicação do front end, do back end, e de ambos juntos.
+
+infraestrutura do deploy:
+
+Para realizar o deploy dos meus projetos, estou utilizando uma VM Ubuntu para funcionar como servidor e armazenar todos os meus projetos, e estou realizando o deploy deles utilizando o nginx, por isso estou tento problemas já que estou utilizando Nginx, não é possivel rodar dois projetos ao mesmo tempo, no caso o frontend, e o backend, (porém vi uma solução na internet, para usar Nginx intermediando o frontend, vou tentar fazerc as mudanças para ver se funciona).
+
+Atualmente meu Nginx está com o Frontend, que está funcionando perfeitamente, porem ele da erro na hora de fazer a requisição ao backend, ja que ele não está rodando pois não consigo inicia-lo.
+
+No meu Nginx está configurado para rodar uma rota root /var/www/react/build, esta rota está toda a minha build do front end, exatamente igual copiada a pasta da própria build, fiz isso para a resolução de um bug.
+
+
+Como fazer o deploy do frontend (explicado)
+
+Neste Projeto (Local):
+-Após fazer as alterações:
+
+git add .
+git commit -m "msg"
+git push origin master --> Isso ira mandar o commit para o repositório remoto dentro da VM, no caso o caminho /react/repo
+ssh 192.168.1.31
+
+Agora dentro da VM:
+-Após acessar a VM pelo ssh
+
+cd react/app --> Vai acessar o projeto
+git pull origin master --> Vai puxar todos os commits do repositorio remoto o caminho /react/repo
+npm run build --> Vai buildar todas as modificações realizadas do projeto
+cd ..
+cd ..
+cd ..
+cd ..
+cd var/www --> Presumindo que antes você estava em react/app, este e o caminho
+sudo cp -R /home/daniel-gaiguer/react/app/build /var/www/react --> Este e o comando para copiar a pasta Build dentro desta pasta, que é aonde o Nginx está escutando, ATENÇÃO com o espaço depois de build no caminho, ele existe
+
+cd ..
+cd ..
+cd home
+cd daniel-gaiguer
+cd react
+cd app --> Este e o caminho supondo que você estava em var/www
+sudo service nginx restart --> Vai reiniciar o Nginx, para atualizar as modificações
+Fim, Alteração realizada com sucesso!
+
+
+
+Outros Comandos uteis:
+
+sudo nano /etc/nginx/sites-enabled/192.168.1.31 --> para mexer na configuração do Nginx
+
