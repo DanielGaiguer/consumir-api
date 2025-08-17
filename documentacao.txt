@@ -41,7 +41,9 @@ cd app --> Este e o caminho supondo que você estava em var/www
 sudo service nginx restart --> Vai reiniciar o Nginx, para atualizar as modificações
 Fim, Alteração realizada com sucesso!
 
-Para testar se esta funcionando, acesse http://192.168.1.31:82/ no navegador, 
+Para testar se esta funcionando, acesse http://192.168.1.31:82/ no navegador, com a API rodando local no servidor
+
+Lembrando que o Nginx esta configuirado tambem para acessar a Api, sem necessariamnete ela estar em uma porta, por isso antes de ver se o frontend está funcionando no navegador, precisamos usar o comando npm start na nossa api no servidor, ai sim o frontend e o backend vão funcionar corretamente
 
 
 Outros Comandos uteis:
